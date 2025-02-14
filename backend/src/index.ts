@@ -8,9 +8,9 @@ import adminRouter from "./routes/adminRouter";
 import userRouter from "./routes/userRouter";
 import guardRouter from "./routes/guardRouter";
 
-app.use("api/admin",adminRouter);
-app.use("api/user",userRouter);
-app.use("api/guard",guardRouter);
+app.use("/api/admin",adminRouter);
+app.use("/api/user",userRouter);
+app.use("/api/guard",guardRouter);
 
 app.listen("3000",()=>{
     console.log("The server is running on 3000");
