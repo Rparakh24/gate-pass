@@ -23,6 +23,8 @@ model User{
   hostelName String
   parentAuth Boolean @default(false)
   adminAuth Boolean  @default(false)
+  parentAuthToken String?
+  parentAuthExpireAt DateTime?
 }
 
 model Admin{
