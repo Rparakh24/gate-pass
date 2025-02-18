@@ -6,9 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 function uAuth(req, res, next) {
     try {
-        const auth = req.headers.authorization || "";
-        const x = auth.split(" ");
-        const token = x[1];
+        const token = req.headers.authorization || "";
         const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
         if (!decoded) {
             res.status(403).json({ e: "eror" });

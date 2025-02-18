@@ -11,9 +11,8 @@ declare module "express-serve-static-core" {
 
 function gAuth(req:Request,res:Response,next:NextFunction){
     try{
-    const auth = req.headers.authorization || "";
-    const x = auth.split(" ");
-    const token = x[1];
+    const token = req.headers.authorization || "";
+    
    
     const decoded = jwt.verify(token,process.env.JWT_SECRET as string) as PayLoad;
     if(!decoded){

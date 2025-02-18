@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+import LeaveApplication from "./pages/Dashboard.";
+import Auth from "./pages/Auth";
+import AdminSignup from "./pages/AdminSignup";
+import AdminSignin from "./pages/AdminSignin";
+import Admindash from "./pages/AdminDash";
+import Waiting from "./pages/Waiting";
+import Qr from "./pages/Qr";
+import Scan from "./pages/Scan";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Signup></Signup>} path="/signup"></Route>
+          <Route element={<Signin></Signin>} path="/signin"></Route>
+          <Route element={<LeaveApplication />} path="/dash"></Route>
+          <Route element={<Auth />} path="/auth"></Route>
+          <Route element={<AdminSignup />} path="/adminsignup"></Route>
+          <Route element={<AdminSignin />} path="/adminsignin"></Route>
+          <Route element={<Admindash />} path="/admindash"></Route>
+          <Route element={<Waiting/>} path="/waiting"></Route>
+          <Route element={<Qr/>} path="/qr"></Route>
+          <Route element={<Scan/>} path="/scan"></Route>
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

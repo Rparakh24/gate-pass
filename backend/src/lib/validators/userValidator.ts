@@ -14,3 +14,9 @@ export const signinVal = z.object({
     password : z.string()
 })
 
+export const userMail = z.object({
+    from: z.string(),
+    to: z.string(),
+    place: z.string(),
+    reason: z.string(),
+  });

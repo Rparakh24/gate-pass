@@ -12,10 +12,8 @@ declare module "express-serve-static-core" {
 
 function uAuth(req:Request,res:Response,next:NextFunction){
     try{
-    const auth = req.headers.authorization || "";
-    const x = auth.split(" ");
-    const token = x[1];
-   
+    const token = req.headers.authorization || "";
+    
     const decoded = jwt.verify(token,JWT_SECRET) as PayLoad;
     if(!decoded){
         res.status(403).json({e:"eror"});
